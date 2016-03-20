@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'codility/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "codility"
-  spec.version       = Codility::VERSION
+  spec.version       = "0.0.0"
   spec.authors       = ["Nebojša Stričević"]
   spec.email         = ["nebojsa.stricevic@gmail.com"]
 
