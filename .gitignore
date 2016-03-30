@@ -8,3 +8,6 @@
 /spec/reports/
 /tmp/
 /.byebug_history
+/.otto/
+/.ottoid
+/vendor/bundle
