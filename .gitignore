@@ -11,3 +11,4 @@
 /.otto/
 /.ottoid
 /vendor/bundle
+.DS_store
