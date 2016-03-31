@@ -1,6 +1,5 @@
 require "spec_helper"
 require "codility/prefix_sums/genomic_range_query"
-require "benchmark"
 
 module Codility
   module PrefixSums

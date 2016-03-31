@@ -1,6 +1,5 @@
 require "spec_helper"
 require "codility/sorting/triangle"
-require "benchmark"
 
 module Codility
   module Sorting

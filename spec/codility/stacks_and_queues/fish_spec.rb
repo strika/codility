@@ -1,6 +1,5 @@
 require "spec_helper"
 require "codility/stacks_and_queues/fish"
-require "benchmark"
 
 module Codility
   module StacksAndQueues

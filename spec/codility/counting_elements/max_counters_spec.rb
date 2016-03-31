@@ -1,5 +1,4 @@
 require "spec_helper"
-require "benchmark"
 require "codility/counting_elements/max_counters"
 
 module Codility

@@ -1,6 +1,5 @@
 require "spec_helper"
 require "codility/sorting/number_of_disc_intersections"
-require "benchmark"
 
 module Codility
   module Sorting
