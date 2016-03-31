@@ -2,7 +2,7 @@
 #
 # Compute the number of intersections in a sequence of discs.
 #
-# Score link - https://codility.com/demo/results/trainingF465M3-ERS/.
+# Score score - https://codility.com/demo/results/trainingF465M3-ERS/.
 #
 module Codility
   module Sorting
