@@ -12,14 +12,16 @@ module Codility
 
       context "for large data set" do
         it "works" do
+          solution = nil
           a = []
           100000.times { a << rand(1000000) }
 
           time = Benchmark.realtime do
-            puts "NUMBER OF INTERSECTIONS: #{NumberOfDiscIntersections.solution(a)}"
+            solution = NumberOfDiscIntersections.solution(a)
           end
 
-          puts "TIME: #{time}"
+          expect(solution).to eql(-1)
+          expect(time).to be < 1
         end
       end
     end
