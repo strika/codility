@@ -2,25 +2,29 @@
 #
 # Find the maximal sum of any double slice.
 #
+# Solution score - https://codility.com/demo/results/trainingHVRXDM-MM8/.
+#
+require "byebug"
 module Codility
   module MaximumSliceProblem
     module MaxDoubleSliceSum
       def self.solution(a)
-        max_sum = a[2]
+        a = a[1...-1]
+        max_normal = max_endings(a[0...-1])
+        max_reverse = max_endings(a[1..-1].reverse).reverse
 
-        (0...(a.size - 2)).each do |x|
-          (x...(a.size - 1)).each do |y|
-            (y...(a.size)).each do |z|
-              max_sum = [max_sum, double_slice_sum(a, x, y, z)].max
-            end
-          end
-        end
-
-        max_sum
+        max_normal.zip(max_reverse).map { |a, b| a + b }.max || 0
       end
 
-      def self.double_slice_sum(a, x, y, z)
-        a[(x + 1)...y].reduce(0, &:+) + a[(y + 1)...z].reduce(0, &:+)
+      def self.max_endings(sequence)
+        max_endings = [0]
+
+        sequence.each do |n|
+          max_ending = [0, max_endings.last + n].max
+          max_endings << max_ending
+        end
+
+        max_endings
       end
     end
   end
