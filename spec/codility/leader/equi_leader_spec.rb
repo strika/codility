@@ -9,19 +9,25 @@ module Codility
         expect(EquiLeader.slow_solution(a)).to eql(2)
       end
 
+      context "edge case" do
+        it "finds the number of equi leaders" do
+          a = [42, 42, 39, 42]
+
+          expect(EquiLeader.solution(a)).to eql(EquiLeader.slow_solution(a))
+        end
+      end
+
       context "for large data set" do
         it "is fast" do
-          a = Array.new(50, 42)
-          49.times { a << rand(101) }
+          a = Array.new(50_000, 42)
+          49_000.times { a << rand(1_000_000_000) }
           a.shuffle!
 
           time = Benchmark.realtime do
-            1000.times do
-              expect(EquiLeader.solution(a)).to eql(EquiLeader.slow_solution(a))
-            end
+            expect(EquiLeader.solution(a)).to be_an_instance_of(Fixnum)
           end
 
-          #expect(time).to be < 1
+          expect(time).to be < 1
         end
       end
     end
