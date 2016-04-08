@@ -12,6 +12,13 @@ module Codility
           expect(CountSemiprimes.solution(26, p, q)).to eql([10, 4, 0])
         end
 
+        it "returns number of semi primes for each range" do
+          p = [1]
+          q = [1]
+
+          expect(CountSemiprimes.solution(1, p, q)).to eql([0])
+        end
+
         context "for large data set" do
           it "is fast" do
             n = 50_000

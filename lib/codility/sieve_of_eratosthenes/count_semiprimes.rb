@@ -2,18 +2,40 @@
 #
 # Count the semiprime numbers in the given range [a..b]
 #
+# Solution score - https://codility.com/demo/results/trainingRJ6NCN-FB2/.
+#
 module Codility
   module SieveOfEratosthenes
     module CountSemiprimes
       def self.solution(n, p, q)
-        semi_primes = semi_primes(n)
+        semi_primes_count = semi_primes_count(n)
 
         p.zip(q).map do |a, b|
-          semi_primes
-            .drop_while { |x| x < a }
-            .take_while { |x| x <= b }
-            .size
+          semi_primes_count[b] - semi_primes_count[a - 1]
         end
+      end
+
+      def self.semi_primes_count(n)
+        semi_primes = semi_primes(n)
+        count = 0
+        semi_primes_count = []
+
+        i = 0
+        while prime = semi_primes.shift
+          while i < prime
+            semi_primes_count << count
+            i += 1
+          end
+
+          count += 1
+        end
+
+        while i <= n
+          semi_primes_count << count
+          i += 1
+        end
+
+        semi_primes_count
       end
 
       def self.semi_primes(n)
