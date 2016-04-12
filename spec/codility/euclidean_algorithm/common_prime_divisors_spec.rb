@@ -16,7 +16,7 @@ module Codility
             a = []
             b = []
 
-            6_000.times do
+            6000.times do
               a << rand(2_000_000_000)
               b << rand(2_000_000_000)
             end

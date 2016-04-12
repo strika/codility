@@ -2,8 +2,8 @@
 #
 # Check whether two numbers have the same prime divisors.
 #
-require "prime"
-
+# Solution score - https://codility.com/demo/results/trainingUS8KMQ-FM9/.
+#
 module Codility
   module EuclideanAlgorithm
     module CommonPrimeDivisors
@@ -12,20 +12,20 @@ module Codility
       end
 
       def self.common_prime_divisors?(x, y)
-        prime_divisors(x) == prime_divisors(y)
+        gcd = x.gcd(y)
+
+        no_primes_besides_gcd?(x, gcd) && no_primes_besides_gcd?(y, gcd)
       end
 
-      def self.prime_divisors(n)
-        divisors = Set.new
+      def self.no_primes_besides_gcd?(n, g)
+        while n != 1
+          n = n / g
+          g = n.gcd(g)
 
-        Prime.each do |prime|
-          return divisors if n == 1
-
-          if n % prime == 0
-            divisors.add(prime)
-            n /= prime while n % prime == 0
-          end
+          return false if g == 1 && n != 1
         end
+
+        true
       end
     end
   end
