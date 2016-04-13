@@ -20,6 +20,7 @@ module Codility
             if new_location == -1
               return position[:steps] + 1
             elsif new_location >= 0 && a[new_location] == 1
+              a[new_location] = 0
               positions << {:location => new_location, :steps => position[:steps] + 1}
             end
           end
