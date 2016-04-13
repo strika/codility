@@ -44,9 +44,13 @@ module Codility
         end
       end
 
-      describe ".fibonacci_numbers" do
-        it "returns fibonacci numbers" do
-          expect(FibFrog.fibonacci_numbers(100)).to eql([0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
+      describe FibFrog::Frog do
+        describe "#allowed_jumps" do
+          it "returns fibonacci numbers except 0" do
+            river = FibFrog::River.new(Array.new(100, 0))
+            frog = FibFrog::Frog.new(river)
+            expect(frog.allowed_jumps).to eql([1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
+          end
         end
       end
     end
